@@ -6,11 +6,13 @@ import numpy as np
 def checkout(skus):
     total = 0
     counts = np.zeros(26)
-    # Get total number of each amount
+    if len(skus) == 0:
+        return 0
     if len(skus[0]) == 0:
         return 0
     if not skus.isupper() or not skus.isalpha():
         return -1
+    # Get total number of each amount
 
     for letter_ind in range(len(string.ascii_uppercase)):
         counts[letter_ind] = skus.count(string.ascii_uppercase[letter_ind])
@@ -58,7 +60,5 @@ def checkout(skus):
     total = np.sum(counts)
 
     return total
-
-print(checkout([""]))
 
 
