@@ -9,9 +9,8 @@ def checkout(skus):
     # Get total number of each amount
     for letter_ind in range(string.ascii_uppercase):
         alphabet_count[letter_ind] = skus.count(string.ascii_uppercase[letter_ind])
-
-        else:
-            return -1
+    if not skus.isupper():
+        return -1
 
 
     # Calculate totals for each
@@ -31,3 +30,4 @@ def checkout(skus):
     total = a_tot+b_tot+c_tot+d_tot+e_tot+f_tot
 
     return total
+
