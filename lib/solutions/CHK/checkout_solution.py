@@ -25,9 +25,12 @@ def checkout(skus):
 
 
     # Calculate totals for each
-    b = b - np.floor(e/2)
-    a_tot = np.floor(a/3)*130+ a % 3 * 50 # get number of complete sets of 3 and add deal, get remainder to calculate total
-    b_tot = np.floor(b/2)*45 + b % 2 * 30 # get number of complete sets of 2 and add deal, get remainder to calculate total
+    b = b - np.floor(e/2) # Remove free ones from deal with E
+    # get number of complete sets of 5 and add deal, get remainder to calculate total of deal with 3, then remainder to
+    # calculate total
+    a_tot = np.floor(a/5)*200 + np.floor((a%5)/3)*130+ ((a%5) % 3) * 50
+    # get number of complete sets of 2 and add deal, get remainder to calculate total
+    b_tot = np.floor(b/2)*45 + b % 2 * 30
     c_tot = c*20
     d_tot = d*15
     e_tot = e*40
@@ -35,3 +38,4 @@ def checkout(skus):
     total = a_tot+b_tot+c_tot+d_tot+e_tot
 
     return total
+
