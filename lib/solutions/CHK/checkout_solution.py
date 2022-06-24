@@ -10,7 +10,7 @@ def checkout(skus):
         return 0
     if len(skus[0]) == 0:
         return 0
-    if not skus.isupper() or not skus.isalpha():
+    if  skus.islower() or not skus.isalpha():
         return -1
     # Get total number of each amount
 
@@ -51,9 +51,9 @@ def checkout(skus):
     counts[21] = np.floor(counts[21]/3)*130 + np.floor((counts[21]%3)/2)*90+ ((counts[21]%3) % 2) * 50
     counts[22] = counts[22]*20
 
-    stxyz = (counts[18]+ counts[19]+ counts[22]+ counts[23]+ counts[24]+ counts[25])*45
+    stxyz = (counts[18]+ counts[19]+ counts[22]+ counts[23]+ counts[24]+ counts[25])
 
-    remainder = stxyz % 3
+    remainder = stxyz
     s = 0
     t = 0
     x = 0
@@ -85,8 +85,9 @@ def checkout(skus):
     counts[25] = z*21
 
 
-    total = np.sum(counts)
+    total = np.sum(counts)+np.floor(stxyz/3)*45
 
     return total
 
 print(checkout('XXXYYZZTSS'))
+
