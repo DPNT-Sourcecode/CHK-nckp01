@@ -7,8 +7,7 @@ def checkout(skus):
     total = 0
     counts = np.zeros(26)
     # Get total number of each amount
-    print(skus[0])
-    if len(skus) == 0:
+    if len(skus[0]) == 0:
         return 0
     if not skus.isupper() or not skus.isalpha():
         return -1
@@ -61,4 +60,5 @@ def checkout(skus):
     return total
 
 print(checkout([""]))
+
 
