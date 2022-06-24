@@ -1,4 +1,4 @@
-
+import numpy as np
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
@@ -18,5 +18,8 @@ def checkout(skus):
             d +=1
         else:
             return -1
-    
+    a_tot = np.floor(a/3)*130+a%3 *50
+    c_tot = c*20
+    d_tot = d*15
+
 
