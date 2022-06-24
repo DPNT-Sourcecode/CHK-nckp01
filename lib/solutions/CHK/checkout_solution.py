@@ -5,29 +5,55 @@ import numpy as np
 # skus = unicode string
 def checkout(skus):
     total = 0
-    alphabet_count = np.zeros(26)
+    counts = np.zeros(26)
     # Get total number of each amount
-    for letter_ind in range(string.ascii_uppercase):
-        alphabet_count[letter_ind] = skus.count(string.ascii_uppercase[letter_ind])
-    if not skus.isupper():
+    for letter_ind in range(len(string.ascii_uppercase)):
+        counts[letter_ind] = skus.count(string.ascii_uppercase[letter_ind])
+    if not skus.isupper() or not skus.isalpha():
         return -1
 
 
     # Calculate totals for each
-    b = b - np.floor(e/2) # Remove free ones from deal with E
-    if b<0:
-        b= 0
-    # get number of complete sets of 5 and add deal, get remainder to calculate total of deal with 3, then remainder to
-    # calculate total
-    a_tot = np.floor(a/5)*200 + np.floor((a%5)/3)*130+ ((a%5) % 3) * 50
-    # get number of complete sets of 2 and add deal, get remainder to calculate total
-    b_tot = np.floor(b/2)*45 + b % 2 * 30
-    c_tot = c*20
-    d_tot = d*15
-    e_tot = e*40
-    f_tot = np.floor(f/3)*20 + f % 3 *10
+    # Remove free buy nx get y free deal
+    counts[1] = counts[1] - np.floor(counts[5]/2)
+    if counts[1]<0:
+        counts[1]= 0
+    counts[12] = counts[12] - np.floor(counts[13]/3)
+    if counts[12]<0:
+        counts[12]= 0
+    counts[16] = counts[16] - np.floor(counts[17]/3)
+    if counts[16]<0:
+        counts[16]= 0
 
-    total = a_tot+b_tot+c_tot+d_tot+e_tot+f_tot
+    counts[0] = np.floor(counts[0]/5)*200 + np.floor((counts[0]%5)/3)*130+ ((counts[0]%5) % 3) * 50
+    counts[1] = np.floor(counts[1]/2)*45 + counts[1] % 2 * 30
+    counts[2] = counts[2]*20
+    counts[3] = counts[3]*15
+    counts[4] = counts[4]*40
+    counts[5] = np.floor(counts[5]/3)*20 + counts[5] % 3 *10
+    counts[6] = counts[6]*20
+    counts[7] = np.floor(counts[7]/10)*80 + np.floor((counts[7]%10)/5)*45+ ((counts[7]%10) % 5) * 10
+    counts[8] = counts[8]*35
+    counts[9] = counts[9]*60
+    counts[10] = np.floor(counts[10]/2)*150 + counts[10] % 2 * 80
+    counts[11] = counts[11]*90
+    counts[12] = counts[12]*15
+    counts[13] = counts[13]*40
+    counts[14] = counts[14]*10
+    counts[15] = np.floor(counts[15]/5)*200 + counts[15] % 5 * 200
+    counts[16] = np.floor(counts[16]/3)*80 + counts[16] % 6 * 30
+    counts[17] = counts[17]*50
+    counts[18] = counts[18]*30
+    counts[19] = counts[19]*20
+    counts[20] = np.floor(counts[20]/3)*100 + counts[20] % 3 *50
+    counts[21] = np.floor(counts[21]/3)*130 + np.floor((counts[21]%3)/2)*90+ ((counts[21]%3) % 2) * 50
+    counts[22] = counts[22]*20
+    counts[23] = counts[23]*90
+    counts[24] = counts[24]*10
+    counts[25] = counts[25]*50
+
+
+    total = np.sum(counts)
 
     return total
 
