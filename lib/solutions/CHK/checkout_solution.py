@@ -1,28 +1,15 @@
+import string
+
 import numpy as np
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
     total = 0
-    a = 0
-    b = 0
-    c = 0
-    d = 0
-    e = 0
-    f = 0
+    alphabet_count = np.zeros(26)
     # Get total number of each amount
-    for letter in skus:
-        if letter == 'A':
-            a +=1
-        elif letter == 'B':
-            b +=1
-        elif letter == 'C':
-            c +=1
-        elif letter == 'D':
-            d +=1
-        elif letter == 'E':
-            e +=1
-        elif letter == 'F':
-            f +=1
+    for letter_ind in range(string.ascii_uppercase):
+        alphabet_count[letter_ind] = skus.count(string.ascii_uppercase[letter_ind])
+
         else:
             return -1
 
@@ -44,6 +31,3 @@ def checkout(skus):
     total = a_tot+b_tot+c_tot+d_tot+e_tot+f_tot
 
     return total
-
-
-
