@@ -19,7 +19,7 @@ def checkout(skus):
 
     # Calculate totals for each
     # Remove free buy nx get y free deal
-    counts[1] = counts[1] - np.floor(counts[5]/2)
+    counts[1] = counts[1] - np.floor(counts[4]/2)
     if counts[1]<0:
         counts[1]= 0
     counts[12] = counts[12] - np.floor(counts[13]/3)
@@ -60,3 +60,4 @@ def checkout(skus):
     total = np.sum(counts)
 
     return total
+
