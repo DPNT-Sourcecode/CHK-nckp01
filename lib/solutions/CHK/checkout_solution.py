@@ -45,7 +45,7 @@ def checkout(skus):
     counts[13] = counts[13]*40
     counts[14] = counts[14]*10
     counts[15] = np.floor(counts[15]/5)*200 + counts[15] % 5 * 50
-    counts[16] = np.floor(counts[16]/3)*80 + counts[16] % 6 * 30
+    counts[16] = np.floor(counts[16]/3)*80 + counts[16] % 3 * 30
     counts[17] = counts[17]*50
     counts[18] = counts[18]*30
     counts[19] = counts[19]*20
@@ -60,4 +60,5 @@ def checkout(skus):
     total = np.sum(counts)
 
     return total
+
 
