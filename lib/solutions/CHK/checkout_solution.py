@@ -8,6 +8,7 @@ def checkout(skus):
     c = 0
     d = 0
     e = 0
+    f = 0
     # Get total number of each amount
     for letter in skus:
         if letter == 'A':
@@ -20,6 +21,8 @@ def checkout(skus):
             d +=1
         elif letter == 'E':
             e +=1
+        elif letter == 'F':
+            f +=1
         else:
             return -1
 
@@ -36,9 +39,11 @@ def checkout(skus):
     c_tot = c*20
     d_tot = d*15
     e_tot = e*40
+    f_tot = np.floor(f/3)*20 + f % 3 *10
 
-    total = a_tot+b_tot+c_tot+d_tot+e_tot
+    total = a_tot+b_tot+c_tot+d_tot+e_tot+f_tot
 
     return total
+
 
 
