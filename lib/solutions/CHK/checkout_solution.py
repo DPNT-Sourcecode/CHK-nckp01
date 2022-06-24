@@ -60,6 +60,3 @@ def checkout(skus):
     total = np.sum(counts)
 
     return total
-
-
-
