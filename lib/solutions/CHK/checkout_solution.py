@@ -47,16 +47,46 @@ def checkout(skus):
     counts[15] = np.floor(counts[15]/5)*200 + counts[15] % 5 * 50
     counts[16] = np.floor(counts[16]/3)*80 + counts[16] % 3 * 30
     counts[17] = counts[17]*50
-    counts[18] = counts[18]*20
-    counts[19] = counts[19]*20
     counts[20] = np.floor(counts[20]/4)*120 + counts[20] % 4 *40
     counts[21] = np.floor(counts[21]/3)*130 + np.floor((counts[21]%3)/2)*90+ ((counts[21]%3) % 2) * 50
     counts[22] = counts[22]*20
-    counts[23] = counts[23]*17
-    counts[24] = counts[24]*20
-    counts[25] = counts[25]*21
+
+    stxyz = (counts[18]+ counts[19]+ counts[22]+ counts[23]+ counts[24]+ counts[25])*45
+
+    remainder = stxyz % 3
+    s = 0
+    t = 0
+    x = 0
+    y = 0
+    z = 0
+    counts[25] = counts[25]
+    while remainder>0:
+        if counts[23]>0:
+            x+=1
+            counts[23]-=1
+        elif counts[24]>0:
+            y=+1
+            counts[24]-=1
+        elif counts[18]>0:
+            s=+1
+            counts[18]-=1
+        elif counts[19]>0:
+            t=+1
+            counts[19]-=1
+        elif counts[25]>0:
+            z=+1
+            counts[25]-=1
+        remainder -=1
+
+    counts[18] = s*20
+    counts[19] = t*20
+    counts[23] = x*17
+    counts[24] = y*20
+    counts[25] = z*21
 
 
     total = np.sum(counts)
 
     return total
+
+print(checkout('XXXYYZZTSS'))
