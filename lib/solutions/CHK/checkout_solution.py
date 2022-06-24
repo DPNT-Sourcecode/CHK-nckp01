@@ -18,6 +18,7 @@ def checkout(skus):
         elif letter == ' D':
             d +=1
         else:
+            print( -1)
             return -1
 
     # Calculate totals for each
@@ -28,6 +29,9 @@ def checkout(skus):
 
     total = a_tot+b_tot+c_tot+d_tot
 
+    print(total)
     return total
+
+checkout(["B"])
 
 
