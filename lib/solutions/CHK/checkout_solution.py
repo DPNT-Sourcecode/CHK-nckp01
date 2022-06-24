@@ -53,7 +53,7 @@ def checkout(skus):
 
     stxyz = (counts[18]+ counts[19]+ counts[22]+ counts[23]+ counts[24]+ counts[25])
 
-    remainder = stxyz
+    remainder = stxyz % 3
     s = 0
     t = 0
     x = 0
@@ -88,6 +88,4 @@ def checkout(skus):
     total = np.sum(counts)+np.floor(stxyz/3)*45
 
     return total
-
-print(checkout('XXXYYZZTSS'))
 
